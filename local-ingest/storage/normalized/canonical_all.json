@@ -1,0 +1,211 @@
+[
+  {
+    "canonical_id": "apple_notes:note-001",
+    "source_system": "apple_notes",
+    "source_record_type": "note",
+    "source_record_id": "note-001",
+    "title": "Project kickoff notes",
+    "content": "Define deterministic ETL flow and schema-first approach.",
+    "start_at": null,
+    "end_at": null,
+    "due_at": null,
+    "created_at": "2026-02-20T13:00:00Z",
+    "updated_at": "2026-02-21T08:15:00Z",
+    "status": null,
+    "location": null,
+    "labels": [
+      "cortona",
+      "planning"
+    ],
+    "participants": [],
+    "extra": {
+      "folder": "Work"
+    },
+    "raw_record": {
+      "id": "note-001",
+      "title": "Project kickoff notes",
+      "body": "Define deterministic ETL flow and schema-first approach.",
+      "created_at": "2026-02-20T13:00:00Z",
+      "updated_at": "2026-02-21T08:15:00Z",
+      "folder": "Work",
+      "tags": [
+        "cortona",
+        "planning"
+      ]
+    }
+  },
+  {
+    "canonical_id": "apple_notes:note-002",
+    "source_system": "apple_notes",
+    "source_record_type": "note",
+    "source_record_id": "note-002",
+    "title": "Personal grocery list",
+    "content": "Milk, eggs, rice",
+    "start_at": null,
+    "end_at": null,
+    "due_at": null,
+    "created_at": "2026-02-22T17:30:00Z",
+    "updated_at": "2026-02-22T17:45:00Z",
+    "status": null,
+    "location": null,
+    "labels": [
+      "home"
+    ],
+    "participants": [],
+    "extra": {
+      "folder": "Personal"
+    },
+    "raw_record": {
+      "id": "note-002",
+      "title": "Personal grocery list",
+      "content": "Milk, eggs, rice",
+      "created_at": "2026-02-22T17:30:00Z",
+      "updated_at": "2026-02-22T17:45:00Z",
+      "folder": "Personal",
+      "labels": [
+        "home"
+      ]
+    }
+  },
+  {
+    "canonical_id": "apple_reminders:rem-101",
+    "source_system": "apple_reminders",
+    "source_record_type": "task",
+    "source_record_id": "rem-101",
+    "title": "Pay electricity bill",
+    "content": "Use bank portal",
+    "start_at": null,
+    "end_at": null,
+    "due_at": "2026-02-28T20:00:00Z",
+    "created_at": "2026-02-18T09:00:00Z",
+    "updated_at": "2026-02-24T10:00:00Z",
+    "status": "open",
+    "location": null,
+    "labels": [
+      "monthly"
+    ],
+    "participants": [],
+    "extra": {
+      "list": "Finance"
+    },
+    "raw_record": {
+      "id": "rem-101",
+      "title": "Pay electricity bill",
+      "notes": "Use bank portal",
+      "dueDate": "2026-02-28T20:00:00Z",
+      "creationDate": "2026-02-18T09:00:00Z",
+      "modificationDate": "2026-02-24T10:00:00Z",
+      "completed": false,
+      "list": "Finance",
+      "tags": [
+        "monthly"
+      ]
+    }
+  },
+  {
+    "canonical_id": "apple_reminders:rem-102",
+    "source_system": "apple_reminders",
+    "source_record_type": "task",
+    "source_record_id": "rem-102",
+    "title": "Submit tax documents",
+    "content": "Upload forms and receipts.",
+    "start_at": null,
+    "end_at": null,
+    "due_at": "2026-03-10T23:59:00Z",
+    "created_at": "2026-02-15T11:30:00Z",
+    "updated_at": "2026-02-23T12:00:00Z",
+    "status": "completed",
+    "location": null,
+    "labels": [],
+    "participants": [],
+    "extra": {
+      "list": "Admin"
+    },
+    "raw_record": {
+      "id": "rem-102",
+      "title": "Submit tax documents",
+      "description": "Upload forms and receipts.",
+      "due_at": "2026-03-10T23:59:00Z",
+      "creationDate": "2026-02-15T11:30:00Z",
+      "modificationDate": "2026-02-23T12:00:00Z",
+      "completed": true,
+      "calendar": "Admin"
+    }
+  },
+  {
+    "canonical_id": "google_calendar:gcal-301",
+    "source_system": "google_calendar",
+    "source_record_type": "event",
+    "source_record_id": "gcal-301",
+    "title": "Design review",
+    "content": "Walk through canonical schema fields.",
+    "start_at": "2026-02-27T14:00:00Z",
+    "end_at": "2026-02-27T15:00:00Z",
+    "due_at": null,
+    "created_at": "2026-02-20T07:00:00Z",
+    "updated_at": "2026-02-25T16:30:00Z",
+    "status": "confirmed",
+    "location": "Conference Room A",
+    "labels": [],
+    "participants": [
+      "alex@example.com",
+      "Jordan"
+    ],
+    "extra": {
+      "calendar_id": "work-team"
+    },
+    "raw_record": {
+      "id": "gcal-301",
+      "summary": "Design review",
+      "description": "Walk through canonical schema fields.",
+      "start": "2026-02-27T14:00:00Z",
+      "end": "2026-02-27T15:00:00Z",
+      "created": "2026-02-20T07:00:00Z",
+      "updated": "2026-02-25T16:30:00Z",
+      "status": "confirmed",
+      "location": "Conference Room A",
+      "calendar_id": "work-team",
+      "attendees": [
+        {
+          "email": "alex@example.com"
+        },
+        {
+          "displayName": "Jordan"
+        }
+      ]
+    }
+  },
+  {
+    "canonical_id": "google_calendar:gcal-302",
+    "source_system": "google_calendar",
+    "source_record_type": "event",
+    "source_record_id": "gcal-302",
+    "title": "Dentist appointment",
+    "content": "Routine cleaning.",
+    "start_at": "2026-03-02T09:00:00Z",
+    "end_at": "2026-03-02T09:30:00Z",
+    "due_at": null,
+    "created_at": "2026-02-10T10:00:00Z",
+    "updated_at": "2026-02-18T10:00:00Z",
+    "status": "confirmed",
+    "location": "Main Street Clinic",
+    "labels": [],
+    "participants": [],
+    "extra": {
+      "calendar_id": "personal"
+    },
+    "raw_record": {
+      "id": "gcal-302",
+      "summary": "Dentist appointment",
+      "description": "Routine cleaning.",
+      "start": "2026-03-02T09:00:00Z",
+      "end": "2026-03-02T09:30:00Z",
+      "created": "2026-02-10T10:00:00Z",
+      "updated": "2026-02-18T10:00:00Z",
+      "status": "confirmed",
+      "location": "Main Street Clinic",
+      "calendar_id": "personal",
+      "attendees": []
+    }
+  }
+]

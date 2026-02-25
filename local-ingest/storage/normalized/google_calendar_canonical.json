@@ -1,0 +1,78 @@
+[
+  {
+    "canonical_id": "google_calendar:gcal-301",
+    "source_system": "google_calendar",
+    "source_record_type": "event",
+    "source_record_id": "gcal-301",
+    "title": "Design review",
+    "content": "Walk through canonical schema fields.",
+    "start_at": "2026-02-27T14:00:00Z",
+    "end_at": "2026-02-27T15:00:00Z",
+    "due_at": null,
+    "created_at": "2026-02-20T07:00:00Z",
+    "updated_at": "2026-02-25T16:30:00Z",
+    "status": "confirmed",
+    "location": "Conference Room A",
+    "labels": [],
+    "participants": [
+      "alex@example.com",
+      "Jordan"
+    ],
+    "extra": {
+      "calendar_id": "work-team"
+    },
+    "raw_record": {
+      "id": "gcal-301",
+      "summary": "Design review",
+      "description": "Walk through canonical schema fields.",
+      "start": "2026-02-27T14:00:00Z",
+      "end": "2026-02-27T15:00:00Z",
+      "created": "2026-02-20T07:00:00Z",
+      "updated": "2026-02-25T16:30:00Z",
+      "status": "confirmed",
+      "location": "Conference Room A",
+      "calendar_id": "work-team",
+      "attendees": [
+        {
+          "email": "alex@example.com"
+        },
+        {
+          "displayName": "Jordan"
+        }
+      ]
+    }
+  },
+  {
+    "canonical_id": "google_calendar:gcal-302",
+    "source_system": "google_calendar",
+    "source_record_type": "event",
+    "source_record_id": "gcal-302",
+    "title": "Dentist appointment",
+    "content": "Routine cleaning.",
+    "start_at": "2026-03-02T09:00:00Z",
+    "end_at": "2026-03-02T09:30:00Z",
+    "due_at": null,
+    "created_at": "2026-02-10T10:00:00Z",
+    "updated_at": "2026-02-18T10:00:00Z",
+    "status": "confirmed",
+    "location": "Main Street Clinic",
+    "labels": [],
+    "participants": [],
+    "extra": {
+      "calendar_id": "personal"
+    },
+    "raw_record": {
+      "id": "gcal-302",
+      "summary": "Dentist appointment",
+      "description": "Routine cleaning.",
+      "start": "2026-03-02T09:00:00Z",
+      "end": "2026-03-02T09:30:00Z",
+      "created": "2026-02-10T10:00:00Z",
+      "updated": "2026-02-18T10:00:00Z",
+      "status": "confirmed",
+      "location": "Main Street Clinic",
+      "calendar_id": "personal",
+      "attendees": []
+    }
+  }
+]

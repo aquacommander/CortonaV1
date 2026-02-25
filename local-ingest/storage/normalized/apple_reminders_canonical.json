@@ -1,0 +1,67 @@
+[
+  {
+    "canonical_id": "apple_reminders:rem-101",
+    "source_system": "apple_reminders",
+    "source_record_type": "task",
+    "source_record_id": "rem-101",
+    "title": "Pay electricity bill",
+    "content": "Use bank portal",
+    "start_at": null,
+    "end_at": null,
+    "due_at": "2026-02-28T20:00:00Z",
+    "created_at": "2026-02-18T09:00:00Z",
+    "updated_at": "2026-02-24T10:00:00Z",
+    "status": "open",
+    "location": null,
+    "labels": [
+      "monthly"
+    ],
+    "participants": [],
+    "extra": {
+      "list": "Finance"
+    },
+    "raw_record": {
+      "id": "rem-101",
+      "title": "Pay electricity bill",
+      "notes": "Use bank portal",
+      "dueDate": "2026-02-28T20:00:00Z",
+      "creationDate": "2026-02-18T09:00:00Z",
+      "modificationDate": "2026-02-24T10:00:00Z",
+      "completed": false,
+      "list": "Finance",
+      "tags": [
+        "monthly"
+      ]
+    }
+  },
+  {
+    "canonical_id": "apple_reminders:rem-102",
+    "source_system": "apple_reminders",
+    "source_record_type": "task",
+    "source_record_id": "rem-102",
+    "title": "Submit tax documents",
+    "content": "Upload forms and receipts.",
+    "start_at": null,
+    "end_at": null,
+    "due_at": "2026-03-10T23:59:00Z",
+    "created_at": "2026-02-15T11:30:00Z",
+    "updated_at": "2026-02-23T12:00:00Z",
+    "status": "completed",
+    "location": null,
+    "labels": [],
+    "participants": [],
+    "extra": {
+      "list": "Admin"
+    },
+    "raw_record": {
+      "id": "rem-102",
+      "title": "Submit tax documents",
+      "description": "Upload forms and receipts.",
+      "due_at": "2026-03-10T23:59:00Z",
+      "creationDate": "2026-02-15T11:30:00Z",
+      "modificationDate": "2026-02-23T12:00:00Z",
+      "completed": true,
+      "calendar": "Admin"
+    }
+  }
+]
