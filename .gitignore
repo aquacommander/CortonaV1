@@ -1,0 +1,25 @@
+# Python bytecode / cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# Tooling caches
+.mypy_cache/
+.pytest_cache/
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+
+# Generated ingestion outputs (keep folders, ignore snapshots)
+storage/raw/*.json
+storage/normalized/*.json
+
+# Keep placeholder files tracked
+!storage/raw/.gitkeep
+!storage/normalized/.gitkeep
