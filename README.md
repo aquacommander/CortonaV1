@@ -1,6 +1,6 @@
 # CortonaV1 Local Ingest Prototype
 
-`local-ingest/` is a local-first data ingestion and normalization pipeline.
+This repository is a local-first data ingestion and normalization pipeline.
 
 The design goal is narrow and explicit: ingest unorganized personal exports and
 normalize them into one canonical schema with deterministic logic.
@@ -9,8 +9,9 @@ normalize them into one canonical schema with deterministic logic.
 
 ### What this prototype does
 - Ingests source exports from local JSON files.
+- Ingests local Google Drive folder metadata from a synced/exported directory.
 - Preserves raw payloads in `storage/raw/` without cleaning or inference.
-- Normalizes notes, reminders, and calendar events into one schema.
+- Normalizes notes, reminders, calendar events, and drive files into one schema.
 - Writes normalized output to `storage/normalized/`.
 
 ### What this prototype intentionally does not do
@@ -21,17 +22,19 @@ normalize them into one canonical schema with deterministic logic.
 ## Project Structure
 
 ```text
-local-ingest/
+.
 ├── ingest/
 │   ├── base.py
 │   ├── apple_notes.py
 │   ├── apple_reminders.py
-│   └── google_calendar.py
+│   ├── google_calendar.py
+│   └── google_drive.py
 ├── normalize/
 │   └── canonical_event.py
 ├── storage/
 │   ├── raw/
 │   └── normalized/
+├── examples/
 ├── main.py
 └── README.md
 ```
@@ -82,6 +85,7 @@ The ingestors accept JSON payloads from local exports.
 - Apple Notes: either `[{...}, {...}]` or `{"notes": [{...}]}`
 - Apple Reminders: either `[{...}]` or `{"reminders": [{...}]}`
 - Google Calendar: either `[{...}]` or `{"events": [{...}]}`
+- Google Drive: a local directory path (`--google-drive-dir`) scanned recursively.
 
 No field cleaning is performed during ingestion.
 
@@ -90,14 +94,21 @@ No field cleaning is performed during ingestion.
 From the repository root:
 
 ```bash
-python local-ingest/main.py \
+python main.py \
   --apple-notes-file path/to/apple_notes.json \
   --apple-reminders-file path/to/apple_reminders.json \
-  --google-calendar-file path/to/google_calendar.json
+  --google-calendar-file path/to/google_calendar.json \
+  --google-drive-dir "/path/to/local/google-drive-folder"
 ```
 
 You can provide any subset of source files. Only provided sources are ingested
 and normalized.
+
+To include checksums for Google Drive files:
+
+```bash
+python main.py --google-drive-dir "/path/to/local/google-drive-folder" --google-drive-checksum
+```
 
 ## Notes for Engineers
 

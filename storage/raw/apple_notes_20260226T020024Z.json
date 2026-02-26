@@ -1,0 +1,32 @@
+{
+  "source": "apple_notes",
+  "source_file": "F:\\Necesssary\\Github\\AquaCommander\\CortonaV1\\examples\\apple_notes.json",
+  "ingested_at_utc": "20260226T020024Z",
+  "payload": {
+    "notes": [
+      {
+        "id": "note-001",
+        "title": "Project kickoff notes",
+        "body": "Define deterministic ETL flow and schema-first approach.",
+        "created_at": "2026-02-20T13:00:00Z",
+        "updated_at": "2026-02-21T08:15:00Z",
+        "folder": "Work",
+        "tags": [
+          "cortona",
+          "planning"
+        ]
+      },
+      {
+        "id": "note-002",
+        "title": "Personal grocery list",
+        "content": "Milk, eggs, rice",
+        "created_at": "2026-02-22T17:30:00Z",
+        "updated_at": "2026-02-22T17:45:00Z",
+        "folder": "Personal",
+        "labels": [
+          "home"
+        ]
+      }
+    ]
+  }
+}
