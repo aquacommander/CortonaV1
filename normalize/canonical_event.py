@@ -182,6 +182,46 @@ def _normalize_google_calendar(payload: Any) -> list[CanonicalEvent]:
     return normalized
 
 
+def _normalize_google_drive(payload: Any) -> list[CanonicalEvent]:
+    records = _records_from_payload(payload, list_key="files")
+    normalized: list[CanonicalEvent] = []
+
+    for index, record in enumerate(records):
+        relative_path = _pick_string(record, ["relative_path"])
+        source_id = relative_path or _pick_string(record, ["absolute_path"]) or str(index)
+        file_name = _pick_string(record, ["file_name", "name"])
+
+        normalized.append(
+            CanonicalEvent(
+                canonical_id=f"google_drive:{source_id}",
+                source_system="google_drive",
+                source_record_type="file",
+                source_record_id=source_id,
+                title=file_name,
+                content=None,
+                start_at=None,
+                end_at=None,
+                due_at=None,
+                created_at=_pick_string(record, ["created_at"]),
+                updated_at=_pick_string(record, ["updated_at"]),
+                status=None,
+                location=None,
+                labels=[],
+                participants=[],
+                extra={
+                    "relative_path": relative_path,
+                    "absolute_path": _pick_string(record, ["absolute_path"]),
+                    "extension": _pick_string(record, ["extension"]),
+                    "size_bytes": record.get("size_bytes"),
+                    "sha256": _pick_string(record, ["sha256"]),
+                },
+                raw_record=record,
+            )
+        )
+
+    return normalized
+
+
 def normalize_raw_document(raw_document: dict[str, Any]) -> list[dict[str, Any]]:
     """Normalize a raw ingestion document into canonical records."""
     source = raw_document.get("source")
@@ -193,6 +233,8 @@ def normalize_raw_document(raw_document: dict[str, Any]) -> list[dict[str, Any]]
         records = _normalize_apple_reminders(payload)
     elif source == "google_calendar":
         records = _normalize_google_calendar(payload)
+    elif source == "google_drive":
+        records = _normalize_google_drive(payload)
     else:
         raise ValueError(f"Unsupported source: {source}")
 
