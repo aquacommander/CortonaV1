@@ -1,0 +1,12 @@
+{
+    "reminders": [
+      {
+        "id": "r-1",
+        "title": "Send recap",
+        "notes": "Share decision summary",
+        "dueDate": "2026-02-28T10:00:00Z",
+        "assignees": ["sam@example.com"],
+        "list": "work"
+      }
+    ]
+  }

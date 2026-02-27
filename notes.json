@@ -1,0 +1,12 @@
+{
+    "notes": [
+      {
+        "id": "n-1",
+        "title": "Roadmap Notes",
+        "content": "Need follow-up with sam@example.com",
+        "created_at": "2026-02-27T09:00:00Z",
+        "people": ["sam@example.com"],
+        "folder": "work"
+      }
+    ]
+  }

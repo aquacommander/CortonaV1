@@ -1,0 +1,35 @@
+[project]
+name = "cortona"
+version = "0.1.0"
+description = "Local-first cognitive orchestration backend"
+requires-python = ">=3.10"
+dependencies = [
+    "pydantic>=2.7.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0.0",
+]
+embeddings = [
+    "numpy>=1.26.0",
+    "faiss-cpu>=1.8.0",
+    "sentence-transformers>=2.7.0",
+]
+
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = [
+    "api*",
+    "core*",
+    "graph*",
+    "state*",
+    "agents*",
+    "storage*",
+    "ingestion*",
+    "embeddings*",
+    "tools*",
+]

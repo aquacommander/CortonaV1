@@ -1,119 +1,44 @@
-# CortonaV1 Local Ingest Prototype
+# Cortona Cognitive Orchestration Backend
 
-This repository is a local-first data ingestion and normalization pipeline.
+Local-first architecture for deterministic memory normalization and persistent cognition.
 
-The design goal is narrow and explicit: ingest unorganized personal exports and
-normalize them into one canonical schema with deterministic logic.
+## Layered Structure
 
-## Scope
+- `core/`: canonical schema and deterministic shared primitives.
+- `ingestion/`: source-specific deterministic mappers (no AI logic).
+- `storage/`: local persistence adapters (SQLite planned).
+- `graph/`: relational link construction on canonical memory.
+- `embeddings/`: local vectorization after canonical persistence.
+- `state/`: behavioral state derivation from structured patterns.
+- `agents/`: event-driven agent interfaces and execution contracts.
+- `tools/`: tool adapters callable by event-driven agents.
+- `api/`: transport and orchestration entry points.
 
-### What this prototype does
-- Ingests source exports from local JSON files.
-- Ingests local Google Drive folder metadata from a synced/exported directory.
-- Preserves raw payloads in `storage/raw/` without cleaning or inference.
-- Normalizes notes, reminders, calendar events, and drive files into one schema.
-- Writes normalized output to `storage/normalized/`.
+## Current Scope (Implemented)
 
-### What this prototype intentionally does not do
-- No AI, LLMs, embeddings, vector databases, or cloud services.
-- No summarization, inference, scoring, or interpretation.
-- No automatic external fetching or syncing from remote APIs.
+- Canonical schema: `core/canonical_schema.py`
+- Deterministic ID generation: `core/deterministic_id.py`
+- Deterministic source mappers:
+  - `ingestion/notes_mapper.py`
+  - `ingestion/calendar_mapper.py`
+  - `ingestion/reminders_mapper.py`
+- SQLite storage and relations schema:
+  - `storage/sqlite_store.py`
+- Deterministic graph relation builder:
+  - `graph/relation_builder.py`
+- End-to-end deterministic orchestrator:
+  - `api/pipeline_runner.py`
+- Local embeddings stack (Step 6):
+  - `embeddings/structured_text.py`
+  - `embeddings/models.py`
+  - `embeddings/faiss_store.py`
+  - `embeddings/indexer.py`
+  - `api/embeddings_runner.py`
 
-## Project Structure
+## Design Constraints
 
-```text
-.
-├── ingest/
-│   ├── base.py
-│   ├── apple_notes.py
-│   ├── apple_reminders.py
-│   ├── google_calendar.py
-│   └── google_drive.py
-├── normalize/
-│   └── canonical_event.py
-├── storage/
-│   ├── raw/
-│   └── normalized/
-├── examples/
-├── main.py
-└── README.md
-```
-
-## Data Flow
-
-1. **Ingestion step** (`ingest/*`)
-   - Reads a local JSON export file.
-   - Writes a snapshot document to `storage/raw/` with:
-     - `source`
-     - `source_file`
-     - `ingested_at_utc`
-     - `payload` (untouched source payload)
-
-2. **Normalization step** (`normalize/canonical_event.py`)
-   - Reads each raw snapshot.
-   - Maps records to canonical fields using explicit source-specific mappings.
-   - Preserves full original source record in `raw_record`.
-   - Writes per-source output and a combined `canonical_all.json`.
-
-## Canonical Schema
-
-Each normalized record includes:
-- `canonical_id`
-- `source_system`
-- `source_record_type` (`note`, `task`, `event`)
-- `source_record_id`
-- `title`
-- `content`
-- `start_at`
-- `end_at`
-- `due_at`
-- `created_at`
-- `updated_at`
-- `status`
-- `location`
-- `labels`
-- `participants`
-- `extra`
-- `raw_record`
-
-This keeps the schema explicit while retaining source fidelity.
-
-## Expected Input Shape
-
-The ingestors accept JSON payloads from local exports.
-
-- Apple Notes: either `[{...}, {...}]` or `{"notes": [{...}]}`
-- Apple Reminders: either `[{...}]` or `{"reminders": [{...}]}`
-- Google Calendar: either `[{...}]` or `{"events": [{...}]}`
-- Google Drive: a local directory path (`--google-drive-dir`) scanned recursively.
-
-No field cleaning is performed during ingestion.
-
-## Run
-
-From the repository root:
-
-```bash
-python main.py \
-  --apple-notes-file path/to/apple_notes.json \
-  --apple-reminders-file path/to/apple_reminders.json \
-  --google-calendar-file path/to/google_calendar.json \
-  --google-drive-dir "/path/to/local/google-drive-folder"
-```
-
-You can provide any subset of source files. Only provided sources are ingested
-and normalized.
-
-To include checksums for Google Drive files:
-
-```bash
-python main.py --google-drive-dir "/path/to/local/google-drive-folder" --google-drive-checksum
-```
-
-## Notes for Engineers
-
-- The system is deterministic by construction: same input file content and order
-  produce the same normalized semantic output.
-- Mapping logic is intentionally verbose and straightforward to review.
-- If new data sources are added, implement a new ingestor and a new explicit
-  mapper function in `canonical_event.py`.
+- Schema-first and deterministic ingestion.
+- No LLM or probabilistic logic in ingestion.
+- Embeddings generated only after canonical storage.
+- Local-first processing and storage.
+- Layer separation to keep modules independently testable.

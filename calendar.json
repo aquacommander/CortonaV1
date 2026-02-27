@@ -1,0 +1,13 @@
+{
+    "events": [
+      {
+        "id": "e-1",
+        "summary": "Roadmap Follow-up",
+        "description": "Discuss priority changes.",
+        "start": {"dateTime": "2026-02-27T11:00:00Z"},
+        "end": {"dateTime": "2026-02-27T11:30:00Z"},
+        "attendees": [{"email": "sam@example.com"}],
+        "calendar": "work"
+      }
+    ]
+  }
