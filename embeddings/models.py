@@ -1,6 +1,6 @@
 from __future__ import annotations
 
-from typing import List, Protocol, Sequence
+from typing import List, Protocol, Sequence, cast
 
 
 class EmbeddingModel(Protocol):
@@ -42,4 +42,4 @@ class SentenceTransformerEmbeddingModel:
             convert_to_numpy=True,
             normalize_embeddings=self._normalize_embeddings,
         )
-        return encoded.tolist()
+        return cast(List[List[float]], encoded.tolist())

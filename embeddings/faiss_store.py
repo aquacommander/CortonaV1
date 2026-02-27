@@ -2,10 +2,10 @@ from __future__ import annotations
 
 import json
 from pathlib import Path
-from typing import List, Sequence, Tuple
+from typing import Any, List, Sequence, Tuple
 
 
-def _ensure_2d_float32(vectors: Sequence[Sequence[float]]):
+def _ensure_2d_float32(vectors: Sequence[Sequence[float]]) -> Any:
     try:
         import numpy as np
     except ImportError as exc:
@@ -17,7 +17,7 @@ def _ensure_2d_float32(vectors: Sequence[Sequence[float]]):
     return array
 
 
-def _normalize_rows(vectors):
+def _normalize_rows(vectors: Any) -> Any:
     import numpy as np
 
     norms = np.linalg.norm(vectors, axis=1, keepdims=True)
@@ -34,7 +34,7 @@ class LocalFaissStore:
         self.index_path.parent.mkdir(parents=True, exist_ok=True)
         self.metadata_path.parent.mkdir(parents=True, exist_ok=True)
 
-    def _load_faiss(self):
+    def _load_faiss(self) -> Any:
         try:
             import faiss
         except ImportError as exc:
