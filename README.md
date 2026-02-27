@@ -85,7 +85,7 @@ Expected output should be similar to:
 Use this when you want end-to-end execution:
 
 ```powershell
-python scripts/run_cognitive_cycle.py `
+python -m scripts.run_cognitive_cycle `
   --notes notes.json `
   --calendar calendar.json `
   --reminders reminders.json `
