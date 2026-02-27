@@ -1,37 +1,43 @@
-# Python bytecode / cache
+# Python bytecode and caches
 __pycache__/
 *.py[cod]
 *.pyo
+*.pyd
 
 # Virtual environments
 .venv/
 venv/
 env/
 
-# Test / tooling caches
+# Tool caches
 .pytest_cache/
 .mypy_cache/
 .ruff_cache/
 
-# Build / packaging artifacts
+# Build artifacts
 build/
 dist/
 *.egg-info/
 
-# IDE / editor
+# IDE/editor
 .idea/
 .vscode/
 
-# OS junk
-.DS_Store
-Thumbs.db
-
-# Local runtime data (generated)
+# Local data outputs (keep folder, ignore generated files)
 data/*.db
 data/*.sqlite
+data/*.sqlite3
 data/*.faiss
-data/*.meta.json
+data/*.jsonl
+data/agent_tasks.json
+data/agent_events.log
+data/agent_note_snapshots.json
 
-# Local secrets / env files
-.env
-.env.*
+# Local test outputs
+data/ci_*.db
+data/polish_*.db
+data/*metrics*.jsonl
+
+# OS files
+.DS_Store
+Thumbs.db
